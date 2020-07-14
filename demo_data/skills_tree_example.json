@@ -1,0 +1,90 @@
+[
+    {
+       "id": "My Skills",
+       "value": ""
+    },
+    {
+       "id": "My Skills|Data Tools",
+       "value": ""
+    },
+    {
+       "id": "My Skills|Data Tools|Data Visualization",
+       "value": ""
+    },
+    {
+       "id": "My Skills|Data Tools|Data Visualization|D3",
+       "value": "I used D3.js to build Collapsing Tree, Box Plots, Word Cloud, Radial Tidy Tree"
+    },
+    {
+       "id": "My Skills|Data Tools|Data Visualization|Highcharts API",
+       "value": "Gauge, Pyramid Chart, Line Chart, Pie Chart, Bubble Chart, etc."
+    },
+    {
+       "id": "My Skills|Data Tools|Data Analyses",
+       "value": ""
+    },
+    {
+       "id": "My Skills|Data Tools|Data Analyses|NumPy",
+       "value": "NumPy - Python library for large, multi-dimensional arrays and matrices"
+    },
+    {
+       "id": "My Skills|Data Tools|Data Analyses|Pandas",
+       "value": "Pandas - Python library for data manipulation and analysis"
+    },
+    {
+       "id": "My Skills|Languages",
+       "value": ""
+    },
+    {
+       "id": "My Skills|Languages|JavaScript",
+       "value": "My experience is 5+ years"
+    },
+    {
+       "id": "My Skills|Languages|Python",
+       "value": "My experience is 1-2 years"
+    },
+    {
+       "id": "My Skills|Languages|JScript.NET",
+       "value": "My experience is 5+ years"
+    },
+    {
+       "id": "My Skills|DBMS",
+       "value": ""
+    },
+    {
+       "id": "My Skills|DBMS|MS Access",
+       "value": "I have experience with developing MS Access databases, DB table and query design"
+    },
+    {
+       "id": "My Skills|DBMS|PostgreSQL",
+       "value": "I used PostgreSQL with my Django applications"
+    },
+    {
+       "id": "My Skills|DBMS|MS SQL Server",
+       "value": "TBD"
+    },
+    {
+       "id": "My Skills|Testing",
+       "value": ""
+    },
+    {
+       "id": "My Skills|Testing|Selenium",
+       "value": "I created automated tests for web applications using Selenium Java Client Driver to achieve 80% automated test coverage"
+    },
+    {
+       "id": "My Skills|Testing|PyTest",
+       "value": "I wrote unit tests for personal Python projects"
+    },
+    {
+       "id": "My Skills|OS",
+       "value": ""
+    },
+    {
+       "id": "My Skills|OS|Windows",
+       "value": ""
+    },
+    {
+       "id": "My Skills|OS|Linux",
+       "value": ""
+    }
+ ]

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <link href="{% static 'css/demo.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="{% static 'js/d3.layout.cloud.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<div id="charts-accordion">
+
+    <!-- D3 Tree Panel -->
+    <section class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#tree_panel">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i> Collapsible D3 Tree Diagram
+            </a>
+        </div>
+        <div class="collapse show" data-parent="#charts-accordion" id="tree_panel">
+            <div class="card-body">
+                Collapsible D3 Tree Diagram represents hierarchical data structures.<br>
+                Click a node to collapse or expand tree nodes.
+                Hover over a leaf node (end node) to view additional information.
+                <div id="skill_tree_example" class="chart-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Word Cloud Panel -->
+    <section class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#wc_panel">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i> Basic Word Cloud
+            </a>
+        </div>
+        <div class="collapse" data-parent="#charts-accordion" id="wc_panel">
+            <div class="card-body">
+                The word cloud is a graphical representation of word frequency.
+                <div id="skill_cloud_example" class="chart-container"></div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bubble Panel -->
+    <section class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#bubble_panel">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>Bubble Plot with D3.js
+            </a>
+        </div>
+        <div class="collapse" data-parent="#charts-accordion" id="bubble_panel">
+            <div class="card-body">
+                <p>
+                    A bubble chart is an extension of the scatter plot used to look at relationships between
+                    three numeric variables. The example bubble chart below is based on a list of my favourite debugging tactics :-)
+                    Hover over a bubble to see additional information.
+                    <!-- The example bubble chart below is based on a list of books from a
+                    <a href="https://www.kaggle.com/jealousleopard/goodreadsbooks" target="_blank">public dataset</a>.
+                    The location of the bubble is determined by the first two dimensions (Publication date and Book rating).
+                    The sizes of the bubbles are determined by the values in the third data series (Number of pages).
+                    The primary language of the book is represented through the colors of the bubbles.<br>
+                    Hover over a bubble to see additional information.<br>
+                    Click a language in the legend to filter books. -->
+                </p>
+                <div style="text-align: center;">Debugging tactics</div>
+                <div id="bubble_example" class="chart-container">
+                    <div class="bubble-tooltip-container">
+                        <div class="bubble-tooltip">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Panel -->
+    <!--section class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#google_panel">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i> Google Data Studio widgets
+            </a>
+        </div>
+        <div class="collapse" data-parent="#charts-accordion" id="google_panel">
+            <div class="card-body">
+                Data visualization using Google Data Studio and
+                <a href="https://datastudio.google.com/u/0/datasources/cda8ed00-4a50-45ee-8fe7-e77e9ca35dd9"
+                   target="_blank">public dataset</a>
+                about the number of Novel Coronavirus (2019-nCoV) cases reported from various countries
+                <iframe allowfullscreen="" frameborder="0" height="600"
+                        src="https://datastudio.google.com/embed/reporting/ccd9ded1-f6e7-4ee3-9037-ad7f42449472/page/d4zDB"
+                        style="border:0" width="100%">
+                </iframe>
+            </div>
+        </div>
+    </section-->
+
+</div>
+
+
+<script src="{% static 'js/tree.js' %}"></script>
+<script src="{% static 'js/wordcloud.js' %}"></script>
+<script src="{% static 'js/bubble.js' %}"></script>
+<script>
+
+/**
+ *  Collapsible Tree Example
+ **/
+
+const chartContainerWidth = Math.min.apply(Math, [$('.chart-container').width(), window.innerWidth, document.documentElement.clientWidth, document.body.clientWidth]);
+const chartContainerHeight = 500;
+
+const treeSettings = {
+    'element': '#skill_tree_example',
+    'path': "{% static 'demo_data/skills_tree_example.json' %}",
+    'margin': {top: 20, right: 90, bottom: 30, left: 100},
+    'size': {
+        'width': chartContainerWidth,
+        'height': chartContainerHeight
+    }
+}
+
+generateTree(treeSettings);
+
+<!--const treeDivId = "#skill_tree_example";-->
+<!--const treeFilePath = "{% static 'demo_data/skills_tree_example.json' %}"-->
+
+<!--var margin = {top: 20, right: 90, bottom: 30, left: 100},-->
+<!--width = chartContainerWidth - margin.left - margin.right,-->
+<!--height = chartContainerHeight - margin.top - margin.bottom;-->
+
+      
+/**
+*  Word Cloud Example
+**/
+
+
+const wcSettings = {
+    'element': '#skill_cloud_example',
+    'path': "{% static 'demo_data/skills_cloud_example.csv' %}",
+    'margin': {top: 30, right: 50, bottom: 30, left: 50},
+    'size': {
+        'width': chartContainerWidth,
+        'height': chartContainerHeight
+    }
+}
+
+generateWordCloud(wcSettings);
+
+
+
+
+
+
+/*
+** Bubble Chart Example
+*/
+
+const bubbleSettings = {
+    'element': '#bubble_example',
+    'tooltip': '.bubble-tooltip',
+    'path': "{% static 'demo_data/practices.csv' %}",
+    'margin': {top: 20, right: 90, bottom: 30, left: 100},
+    'size': {
+        'width': chartContainerWidth,
+        'height': chartContainerHeight
+    }
+}
+generateBubble(bubbleSettings);
+
+
+
+d3.select(window).on("resize", function() {
+    generateTree(treeSettings);
+    generateWordCloud(wcSettings);
+    generateBubble(bubbleSettings);
+
+});
+
+
+</script>
+</body>
+</html>

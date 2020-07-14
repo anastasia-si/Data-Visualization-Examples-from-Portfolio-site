@@ -1,0 +1,11 @@
+method,effectiveness,color_code,seniority,frequency
+take a break,10,1,10,2
+use breakpoints,8,2,10,3
+read the docs,9,3,10,7
+1st page of googling,8,4,5,10
+talk to a rubber duck,7,1,7,1
+4th page of googling,3,2,2,4
+print(123),2,3,1,6
+run the same code, hope it magically works now",3,4,3,10
+divide-and-conquer approach,6,1,2,8
+form a hypothesis and run a simple test to refute it,7,2,6,5
